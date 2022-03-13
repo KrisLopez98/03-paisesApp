@@ -1,0 +1,28 @@
+<h2>Por Capital</h2>
+<hr>
+
+<!--BUSCADOR (INPUT)-->
+<div class="row">
+    <div class="col">
+        <app-pais-input 
+            (Enter)="buscar($event)"
+            placeholder="Buscar capital...">
+        </app-pais-input>
+    </div>
+</div>
+
+<hr>
+
+<!--ALERT: se presenta cuando existe un error al introducir un elemento no 
+    existente en el input-->
+<div *ngIf="hayError" 
+    class="alert alert-danger">
+    No se encontró nada con el término {{ termino }}
+</div>
+
+<!--TABLA DE PAÌSES: esta se presenta cuando no existe errores en la busqueda-->
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
